@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testing Sliders</title>
+</head>
+<body>
+    <h1 id="title"> Begin typing </h1>
+    <div>
+        <input id="input-form" type="text" onkeyup="javascript:ajaxTest();"/>
+    </div>
+
+    <script>
+        function ajaxTest() {
+            let newValue = document.getElementById("input-form").value;
+            document.getElementById("title").innerText = newValue;
+        } 
+    </script>
+</body>
+</html>

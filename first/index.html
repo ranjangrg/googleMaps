@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>First GoogleMap practice project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+<!-- -->
+    <script type="text/javascript" src="main.js"></script>
+ <!-- -->
+</head>
+<body>
+    <div class="title-text"> Custom Map Plotter</div>
+    <div id="googleMap"></div>
+
+    <div id="custom-form">
+        <span id="location-list">
+            <b>Locations in the map: </b> 
+            <button class="special-button" onclick="clearMarkers();"> &#9932 Clear map </a>
+            <button class="special-button" onclick="map.panTo(myCenter);"> &#9962 Home </button> 
+            <br> <hr>
+            <table id="location-list-table">
+                <tr>
+                    <th>ID</th><th> Location </th><th> Latitude </th> <th> Longitude </th>
+                </tr>
+                <tr>
+                    <td>-</td> <td>-</td><td>-</td> <td>-</td>
+                </tr>
+            </table>
+        </span>
+        <span id="location-form">
+            <b> Location </b> 
+            <input id="lat-value" class="submit-form" type="text" placeholder="Enter Latitude"> </input> <br>
+            <input id="lon-value" class="submit-form" type="text" placeholder="Enter Longitude"> </input> <br>
+            <input id="loc-name" class="submit-form" type="text" placeholder="Enter Name"> </input> <br>
+            <button onclick="javascript:addLoc();markPlace();"> Add </button> <br>
+            
+            <!-- Allows user to press enter to submit location data-->
+            <script> allowEnterKeyToAdd(); </script>
+        </span>
+        <span id="bbox-form"> 
+            <b>Bounding Box </b>
+            <input id="bbox-lat-value" class="submit-form" type="text" placeholder="Enter Latitude"> </input> <br>
+            <input id="bbox-lon-value" class="submit-form" type="text" placeholder="Enter Longitude"> </input> <br>
+            <input id="bbox-radius" class="submit-form" type="text" placeholder="Enter Radius"> </input> <br> 
+            <button onclick="javascript:addBox();"> Add Bounding Box </button>
+            <button onclick="javascript:removeBox();"> Clear All Boxes </button>
+        </span>
+        <div id="read-file-form">
+            <b> Read File </b>
+            <span>
+                <input type="file" id="csv-file" name="files[]" style:"max-width: 20%;"/> 
+            </span>
+            <span>
+                <button onclick="javascript:useFile()"> Load File </button>
+            </span>
+            <span>
+                <button onclick="javascript:plotCSV();"> Plot All Locations </button>
+            </span>
+        </div>
+    </div>
+
+<!--   -->
+    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=XX&callback=myMap"></script>
+ <!-- -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 1%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.special-button {
+    float: right;
+}
+
+button:hover {
+    background-color: black; color: white;
+}
+
+.title-text {
+    text-align: center;
+    font-size: 3em;
+    background-color: rgba(184, 232, 168, 1.0);
+} 
+
+#googleMap {
+    //width: 100%; height: 30em;
+	// Changed for work computer monitor
+	width: 100%; height: 50em;
+}
+
+
+#location-list {
+    background-color: rgba(170, 218, 255, 1.0);
+    float: left;
+    text-align: center;
+    width: 45%;
+    max-width: 45%;
+    padding: 1%;
+}
+
+#location-list table {
+    border-collapse: collapse;
+    background-color: white;
+    width: 100%;
+    max-width: 100%;
+}
+#location-list td, th {
+    border: 1px solid #cccccc;
+    text-align: center;
+    min-width: 5%;
+    padding: 0.2%;
+}
+#location-list tr:nth-child(even) {
+    background-color: rgba(250, 242, 199, 1.0);
+}
+
+#location-form {
+    padding: 1%;
+    text-align: center;
+    float: left;
+    width: 28%;
+    max-width: 28%;
+    background-color: rgba(250, 242, 199, 1.0);
+}
+
+#location-form input{
+    width: 100%;
+    max-width: 100%; 
+}
+
+#bbox-form {
+    background-color: rgba(184, 232, 168, 1.0);
+    padding: 1%;
+    text-align: center;
+    float: left;
+    width: 21%;
+    max-width: 21%;
+}
+#bbox-form input{
+    width: 100%;
+    max-width: 100%; 
+}
+
+#read-file-form {
+    background-color: rgba(170, 218, 255, 1.0);
+    margin-left: 47%;
+    width: 28%; max-width: 28%;
+    padding: 1%;
+    text-align: center;
+}
+
+#csv-file {
+    background-color: rgba(184, 232, 168, 1.0);
+}
