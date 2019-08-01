@@ -10,12 +10,14 @@ var map;
 var bbox;
 var markers = []; // Contains list of markers used
 var bbox; // Bounding box
+var infoWindow;	// window/div to display info
 
 function myMap() {
     myCenter = new google.maps.LatLng(52.077859, 4.306906);
     mapCanvas = document.getElementById("googleMap");
     mapOptions = {center: myCenter, zoom: 16};
     map = new google.maps.Map(mapCanvas, mapOptions);
+	infoWindow = new google.maps.InfoWindow();
 }
 
 function markPlace() {
@@ -283,15 +285,30 @@ function parseData(_data) {
     return dataList;
 }
 
-function plotPoint(_lat, _lon, _label) {
+function plotPoint(_lat, _lon, _label, _info) {
     var _location = new google.maps.LatLng(_lat, _lon);
     map.panTo(_location);
+	
+	var tooltip = _label;
+	_label = "";	// making labels empty
+	
     var _marker = new google.maps.Marker({
         position: _location,
         label: _label,
+		title: tooltip,
+		info: _info,
         map: map
     });
     markers.push(_marker);
+	
+	// handle mouse click to show infoWindow
+	google.maps.event.addListener(_marker, 'click', (function(_marker) {
+		return function() {
+			infoWindow.setContent(_marker.info);
+			infoWindow.open(map, _marker);
+		}
+	})(_marker));
+	
 	return true; // success. Used for checking if it is completed
     //_marker.setMap(map);
 }
@@ -309,12 +326,16 @@ function plotCSV() {
         _lon = parseFloat(_d[1]);
         if (_d[2]) {
             _label = _d[2];
-        } else {_label = "x";} // if label is not defined
+        } else {_label = "";} // if label is not defined
+		
+		if (_d[3]) {
+            _info = _d[3];
+        } else {_info = "";} // if info is not defined
 
-        //plotPoint(_lat, _lon, _label); 
+        //plotPoint(_lat, _lon, _label, _info); 
 		//console.log("Location Plotted.");
 
-        if (_lat && _lon && _label && plotPoint(_lat, _lon, _label)) {
+        if (_lat && _lon && _label && plotPoint(_lat, _lon, _label, _info)) {
             var _table = document.getElementById("location-list-table");
             var row = _table.insertRow(1);
             var cell0 = row.insertCell(0);

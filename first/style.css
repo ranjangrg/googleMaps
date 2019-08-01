@@ -40,12 +40,20 @@ button:hover {
     width: 100%;
     max-width: 100%;
 }
+
+#fixed-table {
+	display: block;
+	overflow-y: scroll;
+	max-height: 350px;
+}
+
 #location-list td, th {
     border: 1px solid #cccccc;
     text-align: center;
     min-width: 5%;
     padding: 0.2%;
 }
+
 #location-list tr:nth-child(even) {
     background-color: rgba(250, 242, 199, 1.0);
 }

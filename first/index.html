@@ -21,14 +21,16 @@
             <button class="special-button" onclick="clearMarkers();"> &#9932 Clear map </a>
             <button class="special-button" onclick="map.panTo(myCenter);"> &#9962 Home </button> 
             <br> <hr>
-            <table id="location-list-table">
-                <tr>
-                    <th>ID</th><th> Location </th><th> Latitude </th> <th> Longitude </th>
-                </tr>
-                <tr>
-                    <td>-</td> <td>-</td><td>-</td> <td>-</td>
-                </tr>
-            </table>
+			<div id="fixed-table">
+				<table id="location-list-table">
+					<tr>
+						<th>ID</th><th> Location </th><th> Latitude </th> <th> Longitude </th>
+					</tr>
+					<tr>
+						<td>-</td> <td>-</td><td>-</td> <td>-</td>
+					</tr>
+				</table>
+			</div>
         </span>
         <span id="location-form">
             <b> Location </b> 
